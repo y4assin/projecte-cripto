@@ -26,3 +26,19 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+use Illuminate\Support\Facades\Http;
+
+function getCryptocurrencyList()
+{
+    $apiKey = '3f4a7f6f-52a6-4904-87d8-1c47081f0548';
+
+    $response = Http::withHeaders([
+        'X-CMC_PRO_API_KEY' => $apiKey,
+        'Accept' => 'application/json'
+    ])->get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest');
+
+    $cryptocurrencies = $response->json()['data'];
+
+    return view('cryptocurrency.list', ['cryptocurrencies' => $cryptocurrencies]);
+}
