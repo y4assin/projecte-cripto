@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExchangeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+// Ruta d'acces GET que permet visualitzar les dades que s'hi troben desades a la taula "exchanges".
+Route::get('/exchanges', [ExchangeController::class, 'index'])->name('exchanges.index');
