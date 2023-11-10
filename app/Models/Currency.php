@@ -13,6 +13,7 @@ class Currency extends Model
         'id',
         'name',
         'symbol',
+        'rank',
         'slug'
     ];
 }
