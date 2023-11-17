@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->decimal('precio', 20); // Precio con 10 dígitos y 2 decimales
             $table->decimal('volumen', 20); // Volumen con 10 dígitos y 2 decimales
             $table->decimal('market_cap', 20); // Market Cap con 14 dígitos y 2 decimales
+            $table->string('logo'); // URL de la imagen
             $table->timestamps();
         });
     }

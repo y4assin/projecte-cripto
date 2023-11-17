@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
                 'precio' => $crypto['quote']['USD']['price'],
                 'volumen' => $crypto['quote']['USD']['volume_24h'],
                 'market_cap' => $crypto['quote']['USD']['market_cap'],
+                'logo' => 'https://s2.coinmarketcap.com/static/img/coins/64x64/' . $crypto['id']. '.png',
             ]);
         }
     }
