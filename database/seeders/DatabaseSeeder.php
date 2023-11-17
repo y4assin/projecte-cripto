@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
         // Almacenar los datos en la base de datos
         foreach ($cryptos as $crypto) {
             Crypto::create([
-                'nombre' => $crypto['name'],
+                'nombre' => $crypto['name']['symbol'],
                 'simbolo' => $crypto['symbol'],
                 'precio' => $crypto['quote']['USD']['price'],
                 'volumen' => $crypto['quote']['USD']['volume_24h'],
