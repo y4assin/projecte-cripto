@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CryptoControllerHistoric;
 use App\Http\Controllers\CryptoController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +27,5 @@ Route::middleware([
     Route::get('/dashboard', [CryptoController::class, 'showCryptos'])->name('dashboard');
 });
 
-Route::get('/crypto/{symbol}', [CryptoController::class, 'showHistoric'])->name('crypto-historic');
+Route::get('/crypto', [CryptoControllerHistoric::class, 'showHistoric'])->name('crypto-historic');
 

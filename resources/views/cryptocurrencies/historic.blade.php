@@ -4,10 +4,10 @@
         <th>Price</th>
         <!-- otros encabezados -->
     </tr>
-    @foreach($historicalData as $data)
+    @foreach($historicData as $historic)
     <tr>
-        <td>{{ $data->created_at->toDateString() }}</td>
-        <td>{{ $data->price }}</td>
+        <td>{{ $historic->created_at->toDateString() }}</td>
+        <td>{{ $historic->price }}</td>
         <!-- otros datos -->
     </tr>
     @endforeach

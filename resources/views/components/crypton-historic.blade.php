@@ -13,12 +13,12 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($historicalData as $data)
+            @foreach($historicData as $historic)
             <tr>
-                <td>{{ $data->created_at->format('Y-m-d H:i:s') }}</td>
-                <td>${{ number_format($data->price, 2) }}</td>
-                <td>${{ number_format($data->volume, 2) }}</td>
-                <td>${{ number_format($data->market_cap, 2) }}</td>
+                <td>{{ $historic->created_at->format('Y-m-d H:i:s') }}</td>
+                <td>${{ number_format($historic->price, 2) }}</td>
+                <td>${{ number_format($historic->volume, 2) }}</td>
+                <td>${{ number_format($historic->market_cap, 2) }}</td>
             </tr>
             @endforeach
         </tbody>
