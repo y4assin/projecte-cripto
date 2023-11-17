@@ -26,3 +26,5 @@ Route::middleware([
     Route::get('/dashboard', [CryptoController::class, 'showCryptos'])->name('dashboard');
 });
 
+Route::get('/crypto/{symbol}', [CryptoController::class, 'showHistoric'])->name('crypto-historic');
+
