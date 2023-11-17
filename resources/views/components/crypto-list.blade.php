@@ -16,7 +16,7 @@
             @foreach ($cryptos as $index => $crypto)
                 <tr>
                     <td class="py-3 px-4">{{ $index + 1 }}</td>
-                    <td class="py-3 px-4">{{ $crypto->nombre }}</td>
+                    <td class="py-3 px-4"><a href="#">{{ $crypto->nombre }}</a></td>
                     <td class="py-3 px-4">{{ $crypto->simbolo }}</td>
                     <td class="py-3 px-4">{{ $crypto->precio }}$</td>
                     <td class="py-3 px-4">{{ $crypto->volumen }}</td>
