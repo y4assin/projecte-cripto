@@ -23,6 +23,8 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', [CryptoController::class, 'showCryptos'])->name('dashboard');
+    Route::get('/dashboard', [CryptoController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/{crypto}', [CryptoController::class, 'show'])->name('cryptos.show');
+    Route::get('/update', [CryptoController::class, 'autoUpdateHistory'])->name('cryptos.autoUpdateHistory');
 });
 

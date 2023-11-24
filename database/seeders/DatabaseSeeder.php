@@ -41,5 +41,16 @@ class DatabaseSeeder extends Seeder
                 'market_cap' => $crypto['quote']['USD']['market_cap'],
             ]);
         }
+
+        // Realizar la solicitud a la API de CoinGecko
+        $response = $client->request('GET', 'https://api.coingecko.com/api/v3/coins/list');
+
+        // Guarda los datos del JSON en una variable
+        $cryptos = json_decode($response->getBody(), true);
+
+        foreach ($cryptos as $crypto) {
+            Crypto::where('simbolo', $crypto['symbol'])
+            ->update(['id_coin_gecko' => $crypto['id']]);
+        }
     }
 }

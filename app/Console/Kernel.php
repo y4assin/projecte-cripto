@@ -2,17 +2,21 @@
 
 namespace App\Console;
 
+use App\Http\Controllers\CryptoController;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
     /**
-     * Define the application's command schedule.
+     * Updates the prices history of a crypto every minute
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call(function () {
+            $controller = new CryptoController();
+            $controller->autoUpdateHistory();
+        })->everyMinute();
     }
 
     /**
