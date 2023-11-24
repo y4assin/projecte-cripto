@@ -1342,16 +1342,16 @@
         },
         {
             "name": "laravel/jetstream",
-            "version": "v4.1.0",
+            "version": "v4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "f517d79a778f1e5cb8066e99312683b825da2036"
+                "reference": "649364c0a8056f48ac46dcd48efa98784b3acd93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/f517d79a778f1e5cb8066e99312683b825da2036",
-                "reference": "f517d79a778f1e5cb8066e99312683b825da2036",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/649364c0a8056f48ac46dcd48efa98784b3acd93",
+                "reference": "649364c0a8056f48ac46dcd48efa98784b3acd93",
                 "shasum": ""
             },
             "require": {
@@ -1407,7 +1407,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2023-11-07T13:13:54+00:00"
+            "time": "2023-10-18T13:56:42+00:00"
         },
         {
             "name": "laravel/prompts",
