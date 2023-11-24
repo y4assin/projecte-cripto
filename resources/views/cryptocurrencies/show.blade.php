@@ -2,13 +2,15 @@
 <div class="container mx-auto">
     <h1 class="text-2xl font-bold mb-4 p-3 bg-white">{{ $crypto->nombre }}</h1>
 
-    <table class="min-w-full bg-white rounded-lg overflow-hidden shadow-lg">
+    <canvas class="bg-white" id="cryptoChart" height="100px"></canvas>
+
+    <table class="min-w-full bg-white overflow-hidden shadow-lg">
         <thead class="bg-gray-100 text-gray-700">
             <tr>
                 <th class="text-left py-3 px-4 font-semibold">Nombre</th>
                 <th class="text-left py-3 px-4 font-semibold">Símbolo</th>
                 <th class="text-left py-3 px-4 font-semibold">Precio</th>
-                <th class="text-left py-3 px-4 font-semibold">Last time updated</th>
+                <th class="text-left py-3 px-4 font-semibold">Actualizado por última vez</th>
             </tr>
         </thead>
         <tbody class="text-gray-600">
@@ -20,44 +22,41 @@
                 </tr>
         </tbody>
     </table>
-    <td class="py-3 px-4">{{ $crypto->historial }}</td>
+    
 </div>
-
-<canvas id="myChart" height="100px"></canvas>
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
 <script type="text/javascript">
-  
-  const labels = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-];
+    var historial =  {{ $crypto->historial }};
 
-const data = {
-    labels: labels,
-    datasets: [{
-        label: 'My First dataset',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: [0, 10, 5, 2, 20, 30, 45],
-    }]
-};
+    const labels = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Precio',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45],
+        }]
+    };
   
-      const config = {
+    const config = {
         type: 'line',
         data: data,
         options: {}
-      };
+    };
   
-      const myChart = new Chart(
-        document.getElementById('myChart'),
+    const cryptoChart = new Chart(
+        document.getElementById('cryptoChart'),
         config
-      );
-  
+    );
 </script>
 </x-app-layout>
