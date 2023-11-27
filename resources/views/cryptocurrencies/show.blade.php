@@ -27,24 +27,40 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
 <script type="text/javascript">
+    // Consigue el historial de la BD
     var historial =  {{ $crypto->historial }};
+    
+    // Filtro para formatar la fecha como dd/mm/aa, hh:mm
+    const filtroFecha = {
+    day: "2-digit",
+    month: "2-digit",
+    year: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit"
+    };
 
-    const labels = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-    ];
+    // Recorre el historial y separa en dos arrays paralelos los datos de dia y precio
+    var dia = [];
+    var precio = [];
+    for (var i = 0; i < historial.length; i++) {
+        var dateUnix = historial[i][0];
+        var date = new Intl.DateTimeFormat("es", filtroFecha).format(dateUnix);
 
+        dia.push(date);
+        precio.push(historial[i][1]);
+    }
+
+    // Datos del gráfico
+    const labels = dia;
     const data = {
         labels: labels,
         datasets: [{
-            label: 'Precio',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45],
+            label: 'Precio ($)',
+            backgroundColor: 'rgb(154, 241, 158)',
+            borderColor: 'rgb(19, 192, 27)',
+            data: precio,
+            borderWidth: 1,
+            fill: true
         }]
     };
   
