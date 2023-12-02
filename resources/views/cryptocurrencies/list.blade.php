@@ -7,7 +7,7 @@
 
     <ul>
         @foreach ($cryptocurrencies as $crypto)
-            <li>{{ $crypto->name }} - {{ $crypto->symbol }}</li>
+            <li>{{ $crypto->name }} - {{ $crypto->symbol }}</li>        
         @endforeach
     </ul>
 @endsection

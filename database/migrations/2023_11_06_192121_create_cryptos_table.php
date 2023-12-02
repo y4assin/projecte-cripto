@@ -17,6 +17,9 @@ return new class extends Migration {
             $table->decimal('precio', 20); // Precio con 10 dígitos y 2 decimales
             $table->decimal('volumen', 20); // Volumen con 10 dígitos y 2 decimales
             $table->decimal('market_cap', 20); // Market Cap con 14 dígitos y 2 decimales
+            $table->string('id_coin_gecko')->nullable(); // ID de la moneda a l'API de CoinGecko
+            $table->json('historial')->nullable(); // Json amb les dades del preu de la crypto dels últims 2 dies
+            $table->dateTime('historyUpdated_at')->nullable(); // Data de l'última vegada que es va actualitzar l'historial
             $table->timestamps();
         });
     }

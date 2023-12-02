@@ -18,6 +18,9 @@ class Crypto extends Model
         'precio',
         'volumen',
         'market_cap',
+        'id_coin_gecko',
+        'historial',
+        'historyUpdated_at'
     ];
 
 }
