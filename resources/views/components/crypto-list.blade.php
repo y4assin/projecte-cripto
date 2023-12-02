@@ -15,12 +15,12 @@
         <tbody class="text-gray-600">
             @foreach ($cryptos as $index => $crypto)
                 <tr>
-                    <td class="py-3 px-4">{{ $index + 1 }}</td>
-                    <td class="py-3 px-4">{{ $crypto->nombre }}</td>
-                    <td class="py-3 px-4">{{ $crypto->simbolo }}</td>
-                    <td class="py-3 px-4">{{ $crypto->precio }}$</td>
-                    <td class="py-3 px-4">{{ $crypto->volumen }}</td>
-                    <td class="py-3 px-4">{{ $crypto->market_cap }}$</td>
+                    <td class="py-3 px-4 ">{{ $index + 1 }}</td>
+                    <td class="py-3 px-4 bg-purple-200"><a href="#">{{ $crypto->nombre }}</a></td>
+                    <td class="py-3 px-4 bg-pink-200">{{ $crypto->simbolo }}</td>
+                    <td class="py-3 px-4 bg-purple-200">{{ $crypto->precio }}$</td>
+                    <td class="py-3 px-4 bg-pink-200">{{ $crypto->volumen }}</td>
+                    <td class="py-3 px-4 bg-purple-200">{{ $crypto->market_cap }}$</td>
                 </tr>
             @endforeach
         </tbody>
