@@ -7,6 +7,8 @@ use GuzzleHttp\Client;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,6 +17,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        //usuario default
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('admin'),
+        ]);
+
         $client = new Client();
 
         // Realizar la solicitud a la API de CoinMarketCap
@@ -50,7 +59,7 @@ class DatabaseSeeder extends Seeder
 
         foreach ($cryptos as $crypto) {
             Crypto::where('simbolo', $crypto['symbol'])
-            ->update(['id_coin_gecko' => $crypto['id']]);
+                ->update(['id_coin_gecko' => $crypto['id']]);
         }
     }
 }
